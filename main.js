@@ -14,13 +14,14 @@ const names = [
 ]
 
 // the data we working with
+// rank 1 is best
 const clients = [
-  '🐞',
-  '🐛',
-  '🐝',
-  '🐜',
-  '🐌',
-  '🕷',
+  '🐞', // rank: 6
+  '🐛', // rank: 5
+  '🐝', // rank: 4
+  '🐜', // rank: 3
+  '🐌', // rank: 2
+  '🕷', // rank: 1
 ]
 
 
