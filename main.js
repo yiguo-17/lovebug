@@ -60,12 +60,18 @@ const matchRandomly = function(client) {
 let b =matchRandomly(a);
 b
 
+
+
 const getRank = function(client) {
   // this is backwards or something? they're supposed to be ranked
-  // from lowest to highest, and the top one (spider, obvously) should
+  // from lowest to highest, and the top one (spider, obviously) should
   // be ranked #1
-  return clients.indexOf(client);
+  return (clients.length - clients.indexOf(client));//the index is reversed compared to rank.
 }
+let c = getRank(a);
+c
+
+
 
 const getMatch = function(client) {
   // get the client's location in our data
