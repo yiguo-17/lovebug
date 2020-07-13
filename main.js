@@ -30,15 +30,13 @@ const command = process.argv[2];
 // the name they want it run on
 const name = process.argv[3]
 // the corresponding client
-const client = clients[names.indexOf(name) !== -1]
+const client = clients[names.indexOf(name)];
 
 
 // get a random client from whatever list was passed in
 const randomClient = function(clients) {
-  return clients[Math.floor(Math.random() * clients.length - 1)];
+  return clients[Math.floor(Math.random() * clients.length)];
 }
-let a = randomClient(clients)
-a
 const matchRandomly = function(client) {
   // get our client's location within our system
   const clientLocation = clients.indexOf(client);
@@ -57,8 +55,6 @@ const matchRandomly = function(client) {
   // return a random client from the remaining pool
   return randomClient(otherClients);
 }
-let b =matchRandomly(a);
-b
 
 
 
@@ -68,24 +64,28 @@ const getRank = function(client) {
   // be ranked #1
   return (clients.length - clients.indexOf(client));//the index is reversed compared to rank.
 }
-let c = getRank(a);
-c
 
 
 
 const getMatch = function(client) {
   // get the client's location in our data
   const clientLocation = clients.indexOf(client);
+  clientLocation
 
   // find their two nearest neighbors
+  
   const neighbor1 = clients[clientLocation - 1];
   const neighbor2 = clients[clientLocation + 1];
-  const neighbors = [neighbor1, neighbor2];
+
+  const neighbors = [neighbor1, neighbor2,];
+  const neighbors2 = [];
+  for(const neighbor of neighbors){
+    if(neighbor !== undefined){neighbors2.push(neighbor);}
+  }
 
   // pick one of them and return it
-  return matchRandomly(neighbors);
+  return randomClient(neighbors2);
 }
-
 
 if (command === 'random') {
   // match them randomly
