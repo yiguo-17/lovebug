@@ -3,6 +3,7 @@
 // Fix it up if you can!
 
 
+
 // our clients' names, used only for grabbing the right client from the user input
 const names = [
   'ladybug',
@@ -24,7 +25,6 @@ const clients = [
   '🕷', // rank: 1
 ]
 
-
 // the command the user wants run
 const command = process.argv[2];
 // the name they want it run on
@@ -37,22 +37,28 @@ const client = clients[names.indexOf(name) !== -1]
 const randomClient = function(clients) {
   return clients[Math.floor(Math.random() * clients.length - 1)];
 }
-
+let a = randomClient(clients)
+a
 const matchRandomly = function(client) {
   // get our client's location within our system
   const clientLocation = clients.indexOf(client);
 
+
   // exclude our client from matches by making an array of everyone else
   // find all the clients before our client in the system
   const clientsBeforeOurClient = clients.slice(0, clientLocation);
+
   // find all the clients after our client in the system
-  const clientsAfterOurClient = clients.slice(clientLocation);
+  const clientsAfterOurClient = clients.slice(clientLocation+1);
+
   // add them together
-  const otherClients = clientsBeforeOurClient + clientsAfterOurClient;
+  const otherClients = clientsBeforeOurClient.concat(clientsAfterOurClient);
 
   // return a random client from the remaining pool
   return randomClient(otherClients);
 }
+let b =matchRandomly(a);
+b
 
 const getRank = function(client) {
   // this is backwards or something? they're supposed to be ranked
